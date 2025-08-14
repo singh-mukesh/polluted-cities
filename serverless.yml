@@ -1,0 +1,28 @@
+service: polluted-cities-service
+plugins:
+  - serverless-offline
+custom:
+  serverless-offline:
+    stage: ''               # no stage in URL
+    noPrependStageInUrl: true
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+  stage: ''
+  environment:
+    API_URL: https://be-recruitment-task.onrender.com
+    API_USER: testuser
+    API_PASS: testpass
+
+functions:
+  getCities:
+    handler: src/handler.getCitiesHandler
+    events:
+      - http:
+          path: /cities
+          method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
