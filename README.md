@@ -20,8 +20,6 @@ A Serverless Node.js service to fetch the **most polluted city** for each given 
    ```
 2. Start offline
    ```
-   export MOCK_API_USER=testuser
-   export MOCK_API_PASS=testpas
    npm run dev
    ```
    Then call: `GET http://localhost:3000/cities?country=PL,DE,ES,FR`
